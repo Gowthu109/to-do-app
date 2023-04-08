@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Comic Sans", sans-serif;
+  }
+  
+  body {
+    width: 101%;
+    height: 101vh;
+    overflow: hidden;
+    background: linear-gradient(145deg, #92a8d1, #fefbd8);
+  }
+  
+  ::selection {
+    color: #dfdb47;
+    background: #df8247;
+  }
+  
+  .wrapper {
+    max-width: 410px;
+    background: #fff;
+    margin: 129px auto;
+    border-radius: 9px;
+    padding: 29px 0 31px;
+    box-shadow: 0 11px 31px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-input {
+    position: relative;
+    height: 53px;
+    padding: 0 26px;
+  }
+  
+  .task-input ion-icon {
+    position: absolute;
+    top: 50%;
+    color: #9e4147;
+    font-size: 26px;
+    transform: translate(18px, -50%);
+  }
+  
+  .task-input input {
+    height: 101%;
+    width: 101%;
+    outline: none;
+    font-size: 14px;
+    border-radius: 7px;
+    padding: 0 21px 0 54px;
+    border: 2px solid #999;
+  }
+  
+  .task-input input:focus,
+  .task-input input.active {
+    padding-left: 53px;
+    border: 3px solid #9e8647;
+  }
+  
+  .task-input input::placeholder {
+    color: #9e86d6;
+  }
+  
+  .controls,
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .controls {
+    padding: 19px 24px;
+    border-bottom: 2px solid #c986ff;
+  }
+  
+  .filters span {
+    margin: 0 9px;
+    font-size: 22px;
+    color: #6186ff;
+    cursor: pointer;
+  }
+  
+  .filters span:first-child {
+    margin-left: 0;
+  }
+  
+  .filters span.active {
+    color: #6135da;
+  }
+  
+  .clear-btn {
+    border: none;
+    opacity: 0.8;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 5px;
+    letter-spacing: 0.3px;
+    pointer-events: none;
+    transition: transform 0.25s ease;
+    background: linear-gradient(136deg, #737c73 0%, #373c3d 100%);
+  }
+  
+  .clear-btn.active {
+    opacity: 0.9;
+    pointer-events: auto;
+  }
+  
+  .clear-btn:active {
+    transform: scale(0.83);
+  }
+  
+  .task-box {
+    margin-top: 21px;
+    margin-right: 6px;
+    padding: 0 21px 11px 26px;
+  }
+  
+  .task-box.overflow {
+    overflow-y: auto;
+    max-height: 351px;
+  }
+  
+  .task-box::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .task-box::-webkit-scrollbar-track {
+    background: #80ced6;
+    border-radius: 26px;
+  }
+  
+  .task-box::-webkit-scrollbar-thumb {
+    background: #d5f4e6;
+    border-radius: 30px;
+  }
+  
+  .task-box .task {
+    list-style: none;
+    font-size: 18px;
+    margin-bottom: 19px;
+    padding-bottom: 17px;
+    align-items: flex-start;
+    border-bottom: 2px solid #1b96da;
+  }
+  
+  .task-box .task:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .task-box .task label {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .task label input {
+    margin-top: 8px;
+    accent-color: #1b9673;
+  }
+  
+  .task label p {
+    user-select: none;
+    margin-left: 13px;
+    word-wrap: break-word;
+  }
+  
+  .task label p.checked {
+    text-decoration: line-through;
+  }
+  
+  .task-box .settings {
+    position: relative;
+  }
+  
+  .settings :where(i, li) {
+    cursor: pointer;
+  }
+  
+  .settings .task-menu {
+    position: absolute;
+    right: -6px;
+    bottom: -61px;
+    padding: 6px 0;
+    background: #fff;
+    border-radius: 5px;
+    transform: scale(0);
+    transform-origin: top right;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.16);
+    transition: transform 0.3s ease;
+    z-index: 11;
+  }
+  
+  .task-box .task:last-child .task-menu {
+    bottom: 0;
+    transform-origin: bottom right;
+  }
+  
+  .task-box .task:first-child .task-menu {
+    bottom: -66px;
+    transform-origin: top right;
+  }
+  
+  .task-menu.show {
+    transform: scale(1);
+  }
+  
+  .task-menu li {
+    height: 26px;
+    font-size: 17px;
+    margin-bottom: 3px;
+    padding: 18px 16px;
+    cursor: pointer;
+    justify-content: flex-start;
+  }
+  
+  .task-menu li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .settings li:hover {
+    background: #000;
+  }
+  
+  .settings li i {
+    padding-right: 9px;
+  }
+  
+  @media (max-width: 401px) {
+    body {
+      padding: 0 11px;
+    }
+    .wrapper {
+      padding: 21px 0;
+    }
+    .filters span {
+      margin: 0 6px;
+    }
+    .task-input {
+      padding: 0 21px;
+    }
+    .controls {
+      padding: 19px 21px;
+    }
+    .task-box {
+      margin-top: 21px;
+      margin-right: 6px;
+      padding: 0 16px 11px 21px;
+    }
+    .task label input {
+      margin-top: 5px;
+    }
+  }
+Footer
